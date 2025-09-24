@@ -200,7 +200,7 @@ Please confirm my booking details. Thank you! 🙌`;
           <div className="row align-items-center">
             <div className="col-lg-6">
               <h2 className="fw-bold mb-3">Who We Are</h2>
-              <p className="card-text lead">
+              <p className="card-text lead" data-aos="fade-up">
                 At{" "}
                 <span className="fw-semibold text-primary">
                   Joypicturesstudio
@@ -239,7 +239,12 @@ Please confirm my booking details. Thank you! 🙌`;
 
           <div className="row">
             {services.map((service, index) => (
-              <div className="col-md-6 col-lg-3 mb-4" key={index}>
+              <div
+                className="col-md-6 col-lg-3 mb-4"
+                key={index}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <div className="car h-100 shadow-sm border-0">
                   <img
                     src={service.image}
@@ -328,7 +333,12 @@ Please confirm my booking details. Thank you! 🙌`;
 
           <div className="row g-4">
             {pricingData.map((plan, index) => (
-              <div className="col-md-6 col-lg-4" key={index}>
+              <div
+                className="col-md-6 col-lg-4"
+                key={index}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <div className={`pricing-poster ${plan.gradient}`}>
                   <h4>{plan.title}</h4>
                   <h3>{plan.price}</h3>
@@ -343,7 +353,7 @@ Please confirm my booking details. Thank you! 🙌`;
         </div>
       </section>
 
-      {/* ============================= Contact Section ======================= */}
+      {/* ============================= BranchesSection ======================= */}
       <section className="branch-section py-5" id="branches">
         <div className="container">
           <h3 className="text-center section-heading mb-4">
@@ -351,7 +361,12 @@ Please confirm my booking details. Thank you! 🙌`;
           </h3>
           <div className="row">
             {branches.map((branch, index) => (
-              <div key={index} className="col-md-4 mb-4">
+              <div
+                key={index}
+                className="col-md-4 mb-4"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <div className="card location-card h-100 shadow-sm">
                   <div className="card-body">
                     <h5 className="card-title">
@@ -391,15 +406,6 @@ Please confirm my booking details. Thank you! 🙌`;
       {/* ============================= Contact Section ========================== */}
       <section id="contact" className="contact-section">
         <div className="container">
-          {/* Heading */}
-          {/* <div className="text-center mb-5">
-            <h2 className="fw-bold">Get in Touch</h2>
-            <p className="text-muted card-text lead">
-              We’d love to hear from you! Contact us for bookings,
-              collaborations, or queries.
-            </p>
-          </div> */}
-
           <div className=" ">
             {/* Contact Info */}
             <section id="contact" className="contact-section">
@@ -412,7 +418,7 @@ Please confirm my booking details. Thank you! 🙌`;
                     from you.
                   </p>
 
-                  <div className="info-box">
+                  <div className="info-box" data-aos="fade-up">
                     <i className="fas fa-envelope"></i>
                     <div>
                       <h6>Email us</h6>
@@ -422,7 +428,7 @@ Please confirm my booking details. Thank you! 🙌`;
                     </div>
                   </div>
 
-                  <div className="info-box">
+                  <div className="info-box" data-aos="fade-up">
                     <i className="fas fa-map-marker-alt"></i>
                     <div>
                       <h6>Visit us</h6>
@@ -430,7 +436,7 @@ Please confirm my booking details. Thank you! 🙌`;
                     </div>
                   </div>
 
-                  <div className="info-box">
+                  <div className="info-box" data-aos="fade-up">
                     <i className="fas fa-phone-alt"></i>
                     <div>
                       <h6>Call us</h6>
