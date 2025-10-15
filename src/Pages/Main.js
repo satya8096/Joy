@@ -3,11 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import corosalImg1 from "./../Assets/joypicturestudio_img_3.JPG";
-import corosalImg2 from "./../Assets/joypicturestudio_img_6.JPG";
-import corosalImg3 from "./../Assets/joypicturestudio_img_4.JPG";
-import corosalImg4 from "./../Assets/joypicturestudio_img_11.JPG";
-import corosalImg5 from "./../Assets/joypicturestudio_img_13.JPG";
+import corosalImg1 from "./../Assets/joypicturestudio_img_3.webp";
+import corosalImg2 from "./../Assets/joypicturestudio_img_6.webp";
+import corosalImg3 from "./../Assets/joypicturestudio_img_4.webp";
+import corosalImg4 from "./../Assets/joypicturestudio_img_11.webp";
+import corosalImg5 from "./../Assets/joypicturestudio_img_13.webp";
 import { Link } from "react-scroll";
 import { phoneNumber, email, whatsappLink } from "../Data/Data";
 
@@ -77,7 +77,7 @@ const Main = () => {
     {
       icon: "fa-baby",
       title: "Newborn Photography",
-      image: require("./../Assets/joypicturestudio_img_2.JPG"),
+      image: require("./../Assets/joypicturestudio_img_2.webp"),
       description:
         "Preserve the first precious days of your baby with soft, artistic, and heartfelt newborn portraits.",
       seoTitle: "Newborn Photography Services in Bangalore",
@@ -85,7 +85,7 @@ const Main = () => {
     {
       icon: "fa-female",
       title: "Maternity Photography",
-      image: require("./../Assets/joypicturestudio_img_9.JPG"),
+      image: require("./../Assets/joypicturestudio_img_9.webp"),
       description:
         "Celebrate the beauty of motherhood with elegant and memorable maternity photoshoots tailored to your journey.",
       seoTitle: "Maternity Photography Services in Bangalore",
@@ -101,7 +101,7 @@ const Main = () => {
     {
       icon: "fa-users",
       title: "Family Portraits",
-      image: require("./../Assets/joypicturestudio_img_11.JPG"),
+      image: require("./../Assets/joypicturestudio_img_11.webp"),
       description:
         "Capture togetherness with timeless family portraits that reflect your bond, love, and legacy in every frame.",
       seoTitle: "Family Portrait Photography Services in Bangalore",
@@ -283,7 +283,7 @@ Please confirm my booking details. Thank you! 🙌`;
             {/* Left Side - Image */}
             <div className="col-lg-6 mb-4 mb-lg-0">
               <img
-                src={require("./../Assets/joypicturestudio_img_7.JPG")}
+                src={require("./../Assets/joypicturestudio_img_7.webp")}
                 alt="Joypicturestudios photography"
                 className="img-fluid rounded shadow"
               />
@@ -317,7 +317,7 @@ Please confirm my booking details. Thank you! 🙌`;
                 vision blends traditional beauty with cinematic flair, ensuring
                 every shoot is authentic, emotional, and timeless.
               </p>
-              <blockquote className="blockquote fst-italic text-dark">
+              <blockquote className="blockquote  fst-italic text-dark">
                 “Photography is not just about clicking a shutter — it’s about
                 connecting with people, moments, and memories.”
               </blockquote>
