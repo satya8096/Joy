@@ -22,10 +22,10 @@ const Navbar = () => {
   const navItems = [
     { id: "about", label: "About" },
     { id: "services", label: "Services" },
-    // { id: "partners", label: "Partners" },
+    { id: "partners", label: "Partners" },
     { id: "studios", label: "Studios" },
     // { id: "investments", label: "Investments" },
-    { id: "packages", label: "Packages" },
+    // { id: "packages", label: "Packages" },
     { id: "branches", label: "Branches" },
     { id: "contact", label: "Contact" },
   ];

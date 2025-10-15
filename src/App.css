@@ -39,7 +39,7 @@ h6 {
   letter-spacing: 1.15px;
   font-variation-settings: "wdth" 100, "YTLC" 500;
   word-spacing: 0.1rem;
-  line-height: 2rem;
+  line-height: 3rem;
   word-spacing: 0.2rem;
   font-family: "Ancizar Sans", sans-serif;
   font-family: "Outfit", sans-serif;
@@ -118,12 +118,73 @@ h6 {
   color: #222;
 }
 
+.founder-image {
+  width: 15rem;
+  border: 2px solid black;
+  box-shadow: 0px 0px 10px 15px black;
+}
+
 /* ======================== Services Section =================== */
 
 .service-img {
   height: 20rem;
   object-fit: cover;
   border-bottom: 4px solid #ff5c5c;
+}
+
+/* ======================== Partners Section ============================ */
+.partners-section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-heading {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.partners-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.partners-track {
+  display: flex;
+  gap: 40px;
+  will-change: transform;
+}
+
+.partner-logo {
+  flex-shrink: 0;
+  width: 160px;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-logo img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .partner-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-logo {
+    width: 100px;
+  }
 }
 
 /*  ======================== Studio Branches Section ====================== */
@@ -194,6 +255,32 @@ h6 {
   margin: 0;
   font-weight: 600;
 }
+
+.social-icons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: white;
+  transform: scale(1.1);
+}
 .contact-form {
   flex: 2;
   background: #d9f99d;
@@ -246,6 +333,55 @@ h6 {
     padding: 25px;
   }
 }
+
+
+/* ========Top and Whatsapp Buttons=======*/
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.top-button {
+  background-color: #2b6777;
+  color: white;
+  border: none;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.top-button:hover {
+  transform: scale(1.1);
+}
+.floating-buttons .btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-btn {
+  background-color: #25d366;
+  color: #fff;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+}
+
 
 /* =========================  Pricing Section Styles ==========================*/
 .pricing-section {

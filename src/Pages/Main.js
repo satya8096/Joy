@@ -1,24 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import corosalImg1 from "./../Assets/joypicturestudio_img_3.jpg";
-import corosalImg2 from "./../Assets/joypicturestudio_img_6.jpg";
-import corosalImg3 from "./../Assets/joypicturestudio_img_4.jpg";
+import corosalImg1 from "./../Assets/joypicturestudio_img_3.JPG";
+import corosalImg2 from "./../Assets/joypicturestudio_img_6.JPG";
+import corosalImg3 from "./../Assets/joypicturestudio_img_4.JPG";
+import corosalImg4 from "./../Assets/joypicturestudio_img_11.JPG";
+import corosalImg5 from "./../Assets/joypicturestudio_img_13.JPG";
 import { Link } from "react-scroll";
 import { phoneNumber, email, whatsappLink } from "../Data/Data";
+
+const partnerLogos = [
+  { id: 1, src: require("./../Assets/brindhavvan-areion-hospital.png") },
+  { id: 2, src: require("./../Assets/natus-hospital.png") },
+  { id: 3, src: require("./../Assets/multispeciality-hospital.png") },
+  { id: 4, src: require("./../Assets/Sparsh-hospital.png") },
+  { id: 5, src: require("./../Assets/spandana.jpg") },
+  { id: 6, src: require("./../Assets/Prakriya-logo-baner1.jpg") },
+  { id: 7, src: require("./../Assets/atreum-bloom.jpeg") },
+];
+
 const Main = () => {
+  const trackRef = useRef(null);
+  const animationRef = useRef(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+
+    // duplicate logos to make the track seamless
+    const logos = [...partnerLogos, ...partnerLogos];
+    track.innerHTML = "";
+    logos.forEach((logo, idx) => {
+      const div = document.createElement("div");
+      div.className = "partner-logo";
+      const img = document.createElement("img");
+      img.src = logo.src;
+      img.alt = `Partner ${logo.id}`;
+      div.appendChild(img);
+      track.appendChild(div);
+    });
+
+    let position = 0;
+    const speed = 0.5; // adjust for speed
+
+    const slide = () => {
+      position -= speed;
+      if (Math.abs(position) >= track.scrollWidth / 2) {
+        position = 0; // reset smoothly
+      }
+      track.style.transform = `translateX(${position}px)`;
+      animationRef.current = requestAnimationFrame(slide);
+    };
+
+    animationRef.current = requestAnimationFrame(slide);
+
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
+
   const slides = [
-    { id: 1, img: corosalImg1, alt: "Wedding Shoot" },
-    { id: 2, img: corosalImg2, alt: "Photography Studio" },
-    { id: 3, img: corosalImg3, alt: "Outdoor Portrait" },
+    {
+      id: 1,
+      img: corosalImg1,
+      alt: "Wedding photography in Bangalore by Joypicturestudios",
+    },
+    { id: 2, img: corosalImg2, alt: "photography services in Bangalore" },
+    { id: 3, img: corosalImg3, alt: "professional candid photographers" },
+    {
+      id: 4,
+      img: corosalImg4,
+      alt: "best photography studio in Andhra Pradesh",
+    },
+    { id: 5, img: corosalImg5, alt: "top photographers near me" },
   ];
   const services = [
     {
       icon: "fa-baby",
       title: "Newborn Photography",
-      image: require("./../Assets/service1.jpg"),
+      image: require("./../Assets/joypicturestudio_img_2.JPG"),
       description:
         "Preserve the first precious days of your baby with soft, artistic, and heartfelt newborn portraits.",
       seoTitle: "Newborn Photography Services in Bangalore",
@@ -26,7 +85,7 @@ const Main = () => {
     {
       icon: "fa-female",
       title: "Maternity Photography",
-      image: require("./../Assets/service2.jpg"),
+      image: require("./../Assets/joypicturestudio_img_9.JPG"),
       description:
         "Celebrate the beauty of motherhood with elegant and memorable maternity photoshoots tailored to your journey.",
       seoTitle: "Maternity Photography Services in Bangalore",
@@ -42,7 +101,7 @@ const Main = () => {
     {
       icon: "fa-users",
       title: "Family Portraits",
-      image: require("./../Assets/service4.jpg"),
+      image: require("./../Assets/joypicturestudio_img_11.JPG"),
       description:
         "Capture togetherness with timeless family portraits that reflect your bond, love, and legacy in every frame.",
       seoTitle: "Family Portrait Photography Services in Bangalore",
@@ -89,6 +148,13 @@ const Main = () => {
   ];
 
   const branches = [
+    {
+      name: "Joy Pictures Studio LLp - Main Branch",
+      address:
+        "#329 , 3rd Floor Kalyan Nagar Nagarabhavi 1st stage  Bangalore -560072 ",
+      phone: phoneNumber,
+      email: email,
+    },
     {
       name: "Joy Pictures Studio Yeshwantpur",
       address:
@@ -199,11 +265,11 @@ Please confirm my booking details. Thank you! 🙌`;
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
-              <h2 className="fw-bold mb-3">Who We Are</h2>
+              <h2 className="fw-bold mb-3 section-heading">Who We Are</h2>
               <p className="card-text lead" data-aos="fade-up">
                 At{" "}
                 <span className="fw-semibold text-primary">
-                  Joypicturesstudio
+                  Joypicturestudios
                 </span>
                 , we believe every moment deserves to be treasured. With years
                 of professional expertise, our friendly and passionate team
@@ -217,10 +283,44 @@ Please confirm my booking details. Thank you! 🙌`;
             {/* Left Side - Image */}
             <div className="col-lg-6 mb-4 mb-lg-0">
               <img
-                src={require("./../Assets/joypicturestudio_img_7.jpg")}
-                alt="Who We Are"
+                src={require("./../Assets/joypicturestudio_img_7.JPG")}
+                alt="Joypicturestudios photography"
                 className="img-fluid rounded shadow"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="founder-section py-5">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-5 text-center">
+              <div className="founder-img-wrapper">
+                <img
+                  src={require("./../Assets/founder_image.jpg")}
+                  alt="Founder of Joypicturestudios"
+                  className="img-fluid rounded-circle shadow founder-image"
+                />
+              </div>
+            </div>
+            <div className="col-md-7 p-3">
+              <h3 className="fw-bold mb-2 section-heading">Meet Our Founder</h3>
+              <h5 className="text-muted mb-3 fw-bold">
+                Emanuel Paul – Newborn and Maternity Photographer
+              </h5>
+              <p className="card-text lead mb-4">
+                With over 10 years of hands-on experience in Newborn and
+                Maternity, capturing life’s most precious moments, Emanuel Paul
+                founded Joypicturestudios with a simple belief — every story
+                deserves to be remembered in its truest light. His creative
+                vision blends traditional beauty with cinematic flair, ensuring
+                every shoot is authentic, emotional, and timeless.
+              </p>
+              <blockquote className="blockquote fst-italic text-dark">
+                “Photography is not just about clicking a shutter — it’s about
+                connecting with people, moments, and memories.”
+              </blockquote>
             </div>
           </div>
         </div>
@@ -230,7 +330,7 @@ Please confirm my booking details. Thank you! 🙌`;
       <section id="services" className="core-services-section py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h3 className="section-heading">Our Core Services</h3>
+            <h4 className="section-heading fw-bold">Our Core Services</h4>
             <p className="card-text lead">
               Experience our full range of creative photography and cinematic
               videography services in Bangalore.
@@ -258,6 +358,23 @@ Please confirm my booking details. Thank you! 🙌`;
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================== Partners Section ===================== */}
+      <section className="partners-section" id="partners">
+        <div className="container">
+          <h3 className="section-heading text-center mb-4 fw-bold">
+            Our Trusted Partners
+          </h3>
+          <p className="text-center mb-5 text-muted">
+            We collaborate with some of the most trusted brands to bring your
+            vision to life.
+          </p>
+
+          <div className="partners-slider">
+            <div className="partners-track" ref={trackRef}></div>
           </div>
         </div>
       </section>
@@ -318,7 +435,7 @@ Please confirm my booking details. Thank you! 🙌`;
       </section>
 
       {/* ============================= Pricing Section ======================== */}
-      <section id="packages" className="pricing-section">
+      <section id="packages" className="pricing-section d-none">
         <div className="container">
           <div className="text-center mb-5">
             <h2 className="fw-bold">Our Packages</h2>
@@ -403,7 +520,7 @@ Please confirm my booking details. Thank you! 🙌`;
         </div>
       </section>
 
-      {/* ============================= Contact Section ========================== */}
+      {/* ============================ Contact Section ========================== */}
       <section id="contact" className="contact-section">
         <div className="container">
           <div className=" ">
@@ -423,7 +540,7 @@ Please confirm my booking details. Thank you! 🙌`;
                     <div>
                       <h6>Email us</h6>
                       <p className="card-text lead">
-                        hello@joypicturesstudio.com
+                        book@joypicturestudios.com
                       </p>
                     </div>
                   </div>
@@ -440,14 +557,54 @@ Please confirm my booking details. Thank you! 🙌`;
                     <i className="fas fa-phone-alt"></i>
                     <div>
                       <h6>Call us</h6>
-                      <p className="card-text lead">+91 98765 43210</p>
+                      <p className="card-text lead">+{phoneNumber}</p>
                     </div>
+                  </div>
+                  <div data-aos="fade-up">
+                    <h6 className="text-center">Social Media</h6>
+                  </div>
+                  <div
+                    className="social-icons mt-4 text-center"
+                    data-aos="fade-up"
+                  >
+                    <a
+                      href="https://www.facebook.com/TeamJoyPictures/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon"
+                    >
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/joypictures_studio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon"
+                    >
+                      <i className="fab fa-instagram"></i>
+                    </a>
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon"
+                    >
+                      <i className="fab fa-whatsapp"></i>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@joypicturesstudio2603"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon"
+                    >
+                      <i className="fab fa-youtube"></i>
+                    </a>
                   </div>
                 </div>
 
                 {/* Right Form */}
                 <div className="contact-form">
-                  <h3 className="fw-bold mb-3">Get in Touch</h3>
+                  <h3 className="fw-bold mb-3">Book Your Photoshoot Today</h3>
                   <p className="text-muted card-text lead mb-4">
                     We’d love to hear from you! Contact us for bookings,
                     collaborations, or queries.
